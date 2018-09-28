@@ -36,6 +36,14 @@
   * @import "components/forms";
   */
 
+  amp-img.contain img {
+    object-fit: contain;
+  }
+
+  amp-img.cover img {
+    object-fit: cover;
+  }
+
   .btn {
     @apply font-bold py-2 px-4 rounded;
   }
