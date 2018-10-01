@@ -84,5 +84,5 @@ MIT
 
 ## Contribute
 
-Suggesstions are welcomed! Or make an issue, fork the repo, and raise a PR.
+Suggestions are welcome! Or make an issue, fork the repo, and raise a PR.
 
