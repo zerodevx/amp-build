@@ -1,5 +1,5 @@
 {
-  "name": "amp-boilerplate",
+  "name": "amp-build",
   "version": "0.1.0",
   "description": "An opinionated Google Accelerated Mobile Pages site build.",
   "main": "index.html",
@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zerodevx/amp-boilerplate.git"
+    "url": "git+https://github.com/zerodevx/amp-build.git"
   },
   "keywords": [
     "amp-html",
@@ -34,9 +34,9 @@
   "author": "Jason Lee <jason@zerodevx.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zerodevx/amp-boilerplate/issues"
+    "url": "https://github.com/zerodevx/amp-build/issues"
   },
-  "homepage": "https://github.com/zerodevx/amp-boilerplate#readme",
+  "homepage": "https://zerodevx.github.io/amp-build",
   "devDependencies": {
     "amphtml-validator": "^1.0.23",
     "cpy-cli": "^2.0.0",

@@ -1,4 +1,4 @@
-# amp-boilerplate
+# amp-build
 
 An opinionated [Google Accelerated Mobile Pages](https://www.ampproject.org/) site build.
 
@@ -15,7 +15,7 @@ Featuring:
 
 This is meant to be a starting point for building full AMPed websites.
 
-Check out the demo [here](https://zerodevx.github.io/amp-boilerplate/dist/).
+Check out the demo [here](https://zerodevx.github.io/amp-build/dist/).
 
 
 ## Install
@@ -23,8 +23,8 @@ Check out the demo [here](https://zerodevx.github.io/amp-boilerplate/dist/).
 Clone the repo and install dependencies.
 
 ```
-git clone https://github.com/zerodevx/amp-boilerplate
-cd amp-boilerplate
+git clone https://github.com/zerodevx/amp-build
+cd amp-build
 npm i
 ```
 
