@@ -169,6 +169,10 @@ dfn {
  * Remove the border on images inside links in IE 10-.
  */
 
+img {
+  border-style: none;
+}
+
 /**
  * Hide the overflow in IE.
  */
@@ -456,6 +460,10 @@ button:focus {
  * https://github.com/tailwindcss/tailwindcss/issues/362
  */
 
+img {
+  border-style: solid;
+}
+
 /**
  * Temporary reset for a change introduced in Chrome 62 but now reverted.
  *
@@ -467,6 +475,11 @@ button,
 [type="reset"],
 [type="submit"] {
   border-radius: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 button,
@@ -535,6 +548,14 @@ button,
   * @import "components/buttons";
   * @import "components/forms";
   */
+
+amp-img.contain img {
+  object-fit: contain;
+}
+
+amp-img.cover img {
+  object-fit: cover;
+}
 
 .btn {
   font-weight: 700;
