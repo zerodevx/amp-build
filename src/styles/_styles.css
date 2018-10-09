@@ -669,14 +669,6 @@ table {
   * @import "components/forms";
   */
 
-amp-img.contain img {
-  object-fit: contain;
-}
-
-amp-img.cover img {
-  object-fit: cover;
-}
-
 .btn {
   font-weight: 700;
   padding-top: .5rem;
