@@ -4,7 +4,6 @@
   "description": "An opinionated Google Accelerated Mobile Pages site build.",
   "main": "index.html",
   "scripts": {
-    "tailwind:init": "tailwind init",
     "tailwind:compile": "tailwind build ./src/styles/tailwind.css -o ./src/styles/_styles.css",
     "tailwind:watch": "onchange '**/tailwind.*' -- npm run tailwind:compile",
     "livereload": "live-reload --port 35729 ./src",
