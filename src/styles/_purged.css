@@ -177,6 +177,10 @@ img {
  * Hide the overflow in IE.
  */
 
+svg:not(:root) {
+  overflow: hidden;
+}
+
 /* Forms
    ========================================================================== */
 
@@ -548,14 +552,6 @@ button,
   * @import "components/buttons";
   * @import "components/forms";
   */
-
-amp-img.contain img {
-  object-fit: contain;
-}
-
-amp-img.cover img {
-  object-fit: cover;
-}
 
 .btn {
   font-weight: 700;

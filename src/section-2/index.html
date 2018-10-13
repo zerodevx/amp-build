@@ -2,52 +2,118 @@
 <html ⚡>
   <head>
     <meta charset="utf-8">
-    <title>Section 2</title>
-
-    <!-- Make sure canonical link points to itself. -->
-    <link rel="canonical" href="https://zerodevx.github.io/amp-build/dist/section-2/index.html">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-    <meta name="description" content="An opinionated Google Accelerated Mobile Pages site build.">
 
-    <!-- For Tailwind during development; will be removed at build. -->
-    <link href="../styles/_styles.css" rel="stylesheet">
+    <!-- Input page description here -->
+    <meta name="description" content="An opinionated Google Accelerated Mobile Pages PWA site build.">
 
-    <!-- At build, Tailwind CSS will be purged and inserted below to fit AMP specs. -->
-    <style amp-custom>
-      /* purgecss */
+    <!-- Preload all render-blocking AMP runtimes -->
+    <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">
 
-      /* Some helpful amp-img utility classes */
-      amp-img.contain img { object-fit: contain; }
-      amp-img.cover img { object-fit: cover; }
-    </style>
-
-    <!-- Add your JSON+LD here. -->
+    <!-- Preload all hero images -->
     <!--
-    <script type="application/ld+json">
-    </script>
+    <link rel="preload" as="image" href="./images/bg-2064x1410.jpg" media="(min-width: 1280px)">
+    <link rel="preload" as="image" href="./images/bg-1280x874.jpg" media="(max-width: 1279px) and (min-width: 641px)">
+    <link rel="preload" as="image" href="./images/bg-640x437.jpg" media="(max-width: 640px)">
     -->
 
-    <!-- Add custom AMP components here. -->
+    <!-- Preload Google Fonts -->
+    <!--
+    <link rel="preconnect dns-prefetch" href="https://fonts.gstatic.com/" crossorigin>
+    -->
+
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+
+    <!-- Import other AMP components here -->
     <!--
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
     -->
 
+    <!-- For Tailwind at development and will be removed at build -->
+    <link href="../styles/_styles.css" rel="stylesheet">
+
+    <!-- At build, Tailwind CSS will be minimized and inlined below to fit AMP specs -->
+    <!-- Do not remove this placeholder! -->
+    <style amp-custom>
+      /* amp-build:css-placeholder */
+
+      /* AMP-specific helper classes */
+      amp-img.contain img { object-fit: contain; }
+      amp-img.cover img { object-fit: cover; }
+    </style>
+
+    <!-- Load Google Fonts -->
+    <!--
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    -->
+
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
-    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <link rel="canonical" href=".">
+
+    <!-- Input page title here -->
+    <title>Section 2</title>
+
+    <!-- Input ld+json here -->
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Webpage",
+      "url": "https://zerodevx.github.io/amp-build/dist/section-2",
+      "name": "amp-build",
+      "headline": "amp-build",
+      "description": "An opinionated Google Accelerated Mobile Pages PWA site build.",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://zerodevx.github.io/amp-build/dist"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "zero-dev-x",
+        "logo": {
+          "url": "https://dev.zerodevx.com/assets/logo_text.svg",
+          "width": 400,
+          "height": 120,
+          "@type": "ImageObject"
+        }
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://zerodevx.github.io/amp-build/dist/images/icon-512x512.png",
+        "width": 512,
+        "height": 512
+      }
+    }
+    </script>
+
   </head>
 
   <body>
 
+    <!-- Header -->
     <header class="h-16 bg-blue text-white flex flex-row items-center justify-center">
       <h1>amp-build</h1>
     </header>
 
-    <section class="container mx-auto px-4 pb-16">
-      <h2 class="py-8">Section 2</h2>
-      <a href="../">Back to Home</a>
-    </section>
+    <main>
 
-    <!-- Add your GA code here. -->
+      <section class="container mx-auto px-4 pb-16">
+        <h2 class="py-8">Section 2</h2>
+        <a href="../">Back to Home</a>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-grey-darkest h-16 flex flex-row items-center">
+      <a class="no-underline text-xs text-white hover:text-blue-light mx-4" href="https://zerodevx.github.io/amp-build/">⚡ via amp-build</a>
+      <div class="flex-1"></div>
+      <a class="no-underline text-xs mx-4" href="mailto:jason@zerodevx.com">
+        <span class="text-yellow mr-1">✉</span>
+        <span class="text-white hover:text-blue-light">jason@zerodevx.com</span>
+      </a>
+    </footer>
+
+    <!-- Set up Google Analytics here -->
     <!--
     <amp-analytics type="googleanalytics">
       <script type="application/json">
@@ -66,7 +132,7 @@
     </amp-analytics>
     -->
 
-    <!-- For LiveReload during development; will be removed at build. -->
+    <!-- For LiveReload at development and will be removed at build -->
     <script id="livereload">
       document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
     </script>

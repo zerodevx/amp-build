@@ -11,7 +11,7 @@
     "serve:dist": "http-server ./dist -c-1 -p 8000 -a localhost -o",
     "replace:livereload": "rexreplace '<script id=\"livereload\">(.|\\n)*?<\/script>' '' 'dist/**/*.html'",
     "replace:stylelink": "rexreplace '<link(.*?)rel=\"stylesheet\">' '' 'dist/**/*.html'",
-    "replace:purged": "cat ./src/styles/_purged.css | rexreplace '\\/\\* purgecss \\*\\/' '_' 'dist/**/*.html' -R",
+    "replace:purged": "cat ./src/styles/_purged.css | rexreplace '\\/\\* amp-build:css-placeholder \\*\\/' '_' 'dist/**/*.html' -R",
     "build:copy": "cpy '**/*' '!images/*' '!styles/*' '../dist' --cwd=src --parents",
     "build:purge": "cpy './src/styles/_styles.css' './src/styles' --rename='_purged.css' && purgecss --css src/styles/_purged.css --content 'src/**/*.html' --out src/styles",
     "build:htmlmin": "foreach -g 'dist/**/*.html' -x 'html-minifier --collapse-whitespace --remove-comments --minify-js true --process-scripts [\\\"application/ld+json\\\",\\\"application/json\\\"] --minify-css {\\\"level\\\":{\\\"1\\\":{\\\"all\\\":false\\,\\\"removeWhitespace\\\":true\\,\\\"specialComments\\\":0}}} #{path} > #{path}.tmp && rm #{path} && mv #{path}.tmp #{path}' -C",
