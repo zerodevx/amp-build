@@ -37,7 +37,7 @@ Launch the development server.
 npm run dev
 ```
 
-This opens up a new browser window pointing to `http://127.0.0.1:8000/` which serves files from the `/src` directory.
+This opens up a new browser window pointing to `http://localhost:8000/` which serves files from the `/src` directory.
 
 
 ### HTML

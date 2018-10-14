@@ -7,6 +7,9 @@
     <!-- Input page description here -->
     <meta name="description" content="An opinionated Google Accelerated Mobile Pages PWA site build.">
 
+    <!-- Input theme color here -->
+    <meta name="theme-color" content="#1C75BC">
+
     <!-- Preload all render-blocking AMP runtimes -->
     <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">
 
@@ -23,12 +26,13 @@
     <script async src="https://cdn.ampproject.org/v0.js"></script>
 
     <!-- Import other AMP components here -->
+    <script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
     <!--
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
     -->
 
     <!-- For Tailwind at development and will be removed at build -->
-    <link href="./styles/_styles.css" rel="stylesheet">
+    <link id="tailwind" href="./styles/_styles.css" rel="stylesheet">
 
     <!-- At build, Tailwind CSS will be minimized and inlined below to fit AMP specs -->
     <!-- Do not remove this placeholder! -->
@@ -112,7 +116,7 @@
 
       <!-- Contents -->
       <section class="container mx-auto px-4 pb-16">
-        <p class="py-4">Hello! This is an opinionated Google Accelerated Mobile Pages Progressive Web App site build. Quite a mouthful - I know.</p>
+        <p class="py-4">Hi! This is an opinionated Google Accelerated Mobile Pages Progressive Web App site build. Quite a mouthful - I know.</p>
         <p class="py-4">It is fully spec-compliant and very performant.</p>
         <p class="py-4">Here is a picture of a cat.</p>
         <amp-img
@@ -170,6 +174,13 @@
       </script>
     </amp-analytics>
     -->
+
+    <!-- Install the service worker -->
+    <amp-install-serviceworker
+      src="./sw.js"
+      layout="nodisplay"
+      data-iframe-src="./install-sw.html">
+    </amp-install-serviceworker>
 
     <!-- For LiveReload at development and will be removed at build -->
     <script id="livereload">

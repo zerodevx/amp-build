@@ -7,6 +7,9 @@
     <!-- Input page description here -->
     <meta name="description" content="An opinionated Google Accelerated Mobile Pages PWA site build.">
 
+    <!-- Input theme color here -->
+    <meta name="theme-color" content="#1C75BC">
+
     <!-- Preload all render-blocking AMP runtimes -->
     <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">
 
@@ -25,12 +28,13 @@
     <script async src="https://cdn.ampproject.org/v0.js"></script>
 
     <!-- Import other AMP components here -->
+    <script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
     <!--
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
     -->
 
     <!-- For Tailwind at development and will be removed at build -->
-    <link href="../styles/_styles.css" rel="stylesheet">
+    <link id="tailwind" href="../styles/_styles.css" rel="stylesheet">
 
     <!-- At build, Tailwind CSS will be minimized and inlined below to fit AMP specs -->
     <!-- Do not remove this placeholder! -->
@@ -131,6 +135,13 @@
       </script>
     </amp-analytics>
     -->
+
+    <!-- Install the service worker -->
+    <amp-install-serviceworker
+      src="./sw.js"
+      layout="nodisplay"
+      data-iframe-src="./install-sw.html">
+    </amp-install-serviceworker>
 
     <!-- For LiveReload at development and will be removed at build -->
     <script id="livereload">
