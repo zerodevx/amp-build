@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Re-register service worker during development -->
+    <!--
+    <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+        .then(swReg => {
+          console.log('Service Worker installed', swReg);
+        })
+        .catch(err => {
+          console.error('Service Worker error', err);
+        });
+      });
+    }
+    </script>
+    -->
+
+    <!-- Do not index App Shell in search engines -->
+    <meta name="robots" content="noindex">
+
+    <!-- Input page description here -->
+    <meta name="description" content="AMP-BUILD POWERED BY ZERO-DEV-X">
+
+    <!-- Input theme color here -->
+    <meta name="theme-color" content="#1C75BC">
+
+    <!-- Preload Google Fonts -->
+    <link rel="preconnect dns-prefetch" href="https://fonts.gstatic.com/" crossorigin>
+
+    <!-- Load the AMP-Shadow-Dom runtime - only applies to the App Shell -->
+    <!--<script async src="https://cdn.ampproject.org/shadow-v0.js"></script>-->
+
+    <!-- Import other AMP components here -->
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+
+    <!-- Load Google Fonts here -->
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
+
+    <!-- For Tailwind during development and will be removed at build -->
+    <link id="tailwind" href="http://localhost:8000/src/styles/styles.css" rel="stylesheet">
+
+    <!-- At build, Tailwind CSS will be minimized and inlined below -->
+    <!-- Do not remove this placeholder! -->
+    <style>
+      /* tw:placeholder */
+
+      /* AMP-specific helper classes */
+      amp-img.contain img { object-fit: contain; }
+      amp-img.cover img { object-fit: cover; }
+
+      /* Page-specific CSS rules (like header link active classes), if any */
+      main {
+        position: absolute;
+        top: 4rem; right: 0; bottom: 0; left: 0;
+        overflow: scroll;
+        opacity: 1;
+        transition: opacity 200ms linear;
+      }
+      main.hide {
+        opacity: 0;
+      }
+      .loader {
+        width: 28px;
+        height: 4px;
+        position: fixed;
+        top: calc(50vh - 14px);
+        left: calc(50vw - 2px);
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 200ms linear;
+      }
+      .loader.hide {
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s 200ms, opacity 200ms linear;
+      }
+    </style>
+
+    <!-- Link to the Web App manifest -->
+    <link rel="manifest" href="http://localhost/src/site/manifest.json">
+
+    <!-- Input page title here -->
+    <title>App Shell</title>
+
+  </head>
+  <body class="min-h-screen m-0 relative">
+
+    <!-- Header -->
+    <script snippet="header.html" src="http://localhost:8000/src/scripts/insert-snippet.js"></script>
+
+    <!-- AMP Content will be dynamically inserted here! -->
+    <main></main>
+
+    <!-- Loader -->
+    <img class="loader hide" src="http://localhost:8000/src/images/loader.gif">
+
+    <script id="app-shell" src="http://localhost:8000/src/pwa/app-shell.js"></script>
+
+    <!-- For LiveReload during development and will be removed at build -->
+    <!--
+    <script id="livereload">
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+    </script>
+    -->
+
+  </body>
+</html>

@@ -1,0 +1,206 @@
+<!doctype html>
+<html ⚡>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- This is automatically removed in Production -->
+    <meta name="robots" content="noindex">
+
+    <!-- Input page description here -->
+    <meta name="description" content="An opinionated Google AMP PWA site build.">
+
+    <!-- Input theme color here -->
+    <meta name="theme-color" content="#1C75BC">
+
+    <!-- Preload all render-blocking AMP runtimes -->
+    <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">
+
+    <!-- Preload all hero images here -->
+    <link rel="preload" as="image" href="https://picsum.photos/1920/1080?image=28" media="(min-width: 1280px)">
+    <link rel="preload" as="image" href="https://picsum.photos/1280/768?image=28" media="(max-width: 1279px) and (min-width: 641px)">
+    <link rel="preload" as="image" href="https://picsum.photos/640/480?image=28" media="(max-width: 640px)">
+
+    <!-- Preload Google Fonts -->
+    <link rel="preconnect dns-prefetch" href="https://fonts.gstatic.com/" crossorigin>
+
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+
+    <!-- Import default AMP components here -->
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <script async custom-element="amp-font" src="https://cdn.ampproject.org/v0/amp-font-0.1.js"></script>
+
+    <!-- Alternatively, import default components from `amp-components.html` snippet -->
+    <!--<script snippet="amp-components.html" src="http://localhost:8000/src/scripts/insert-snippet.js"></script>-->
+
+    <!-- Import page-specific AMP components here -->
+
+    <!--analytics:start
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    analytics:end-->
+
+    <!-- Import AMP service worker -->
+    <!--sw:start
+    <script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
+    sw:end-->
+
+    <!-- Load Google Fonts here -->
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
+
+    <!-- For Tailwind during development and will be removed at build -->
+    <link id="tailwind" href="http://localhost:8000/src/styles/styles.css" rel="stylesheet">
+
+    <!-- At build, Tailwind CSS will be minimized and inlined below to fit AMP specs -->
+    <!-- Do not remove this placeholder! -->
+    <style amp-custom>
+      /* tw:placeholder */
+
+      /* AMP-specific helper classes */
+      amp-img.contain img { object-fit: contain; }
+      amp-img.cover img { object-fit: cover; }
+
+      /* Page-specific CSS rules (like header link active classes), if any */
+
+    </style>
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
+    <!-- This automatically updates when scaffolding -->
+    <link rel="canonical" href=".">
+
+    <!-- Link to the Web App manifest -->
+    <!--manifest:start
+    <link rel="manifest" href="./manifest.json">
+    manifest:end-->
+
+    <!-- Input page title here -->
+    <title>amp-build | zero-dev-x</title>
+
+    <!-- Input ld+json here -->
+    <!--
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Webpage",
+      "url": "https://zerodevx.github.io/amp-build/dist",
+      "name": "amp-build",
+      "headline": "amp-build",
+      "description": "An opinionated Google Accelerated Mobile Pages PWA site build.",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://zerodevx.github.io/amp-build/dist"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "zero-dev-x",
+        "logo": {
+          "url": "https://dev.zerodevx.com/assets/logo_text.svg",
+          "width": 400,
+          "height": 120,
+          "@type": "ImageObject"
+        }
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://zerodevx.github.io/amp-build/dist/images/icon-512x512.png",
+        "width": 512,
+        "height": 512
+      }
+    }
+    </script>
+    -->
+
+  </head>
+
+  <body>
+
+    <!-- Header -->
+    <script snippet="header.html" src="http://localhost:8000/src/scripts/insert-snippet.js"></script>
+
+    <!-- The `<main>` tag be content section extracted by the App Shell in PWA mode -->
+    <main>
+
+      <!-- Hero Section -->
+      <section class="relative w-screen h-64">
+
+        <amp-img
+          class="cover w-full h-full"
+          src="https://picsum.photos/1920/1080?image=28"
+          srcset="https://picsum.photos/1080/768?image=28 1280w, https://picsum.photos/640/480?image=28 640w"
+          width="2064" height="1410"
+          layout="responsive">
+        </amp-img>
+
+        <div class="absolute pin bg-black opacity-50"></div>
+
+        <div class="absolute pin flex flex-col items-center justify-center text-white">
+          <h1 class="mb-6 font-thin">Hello World!</h1>
+          <p class="font-light tracking-wide">An opinionated Google AMP PWA site build.</p>
+        </div>
+
+      </section>
+
+      <!-- Contents -->
+      <section class="container mx-auto px-4 pb-16 font-light">
+
+        <h3 class="my-6">The standard Lorem Ipsum passage, used since the 1500s</h2>
+        <p class="my-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <h3 class="my-6">Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC</h2>
+        <p class="my-4">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+
+        <h3 class="my-6">1914 translation by H. Rackham</h2>
+        <p class="my-4">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?</p>
+
+      </section>
+
+      <!-- Footer -->
+      <script snippet="footer.html" src="http://localhost:8000/src/scripts/insert-snippet.js"></script>
+
+    </main>
+
+    <amp-font
+      layout="nodisplay"
+      font-family="Material Icons"
+      timeout="30000"
+      on-load-add-class="font-loaded">
+    </amp-font>
+
+    <!-- Set up Google Analytics here -->
+    <!--analytics-ga:start
+    <amp-analytics type="googleanalytics">
+      <script type="application/json">
+      {
+        "vars": {
+          "account": "UA-XXXXX-Y"
+        },
+        "triggers": {
+          "trackPageview": {
+            "on": "visible",
+            "request": "pageview"
+          }
+        }
+      }
+      </script>
+    </amp-analytics>
+    analytics-ga:end-->
+
+    <!-- Install the service worker -->
+    <!--sw:start
+    <amp-install-serviceworker
+      src="http://localhost:8000/src/site/sw.js"
+      layout="nodisplay"
+      data-iframe-src="http://localhost:8000/src/site/install-sw.html">
+    </amp-install-serviceworker>
+    sw:end-->
+
+    <!-- For LiveReload during development and will be removed at build -->
+    <!--
+    <script id="livereload">
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+    </script>
+    -->
+
+  </body>
+</html>

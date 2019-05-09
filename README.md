@@ -1,88 +1,158 @@
 # amp-build
 
-An opinionated [Google Accelerated Mobile Pages](https://www.ampproject.org/) site build.
+An opinionated [AMP](https://amp.dev) [PWA](https://developers.google.com/web/progressive-web-apps/) site build.
 
-Featuring:
+Works like a simple static site generator that outputs AMP-validated pages which are indexed by search engines and acts as an entry point to a complete PWA app.
 
-* NPM Scripts for Tooling
-* [Tailwind](https://tailwindcss.com/) as CSS Framework
-* Development Server with [LiveReload](https://github.com/livereload/livereload-js)
-* Full Build Minification via [PurgeCSS](https://github.com/FullHuman/purgecss), [HTMLMinifier](https://github.com/kangax/html-minifier) and [imagemin](https://github.com/imagemin/imagemin)
-* AMP Validation
+Features:
 
+* Super optimized build.
 
-## Introduction
+* HTML snippets for reusability.
 
-This is meant to be a starting point for building full AMPed websites.
+* Tailwindcss v0 as utility CSS.
 
-Check out the demo [here](https://zerodevx.github.io/amp-build/dist/).
+* PurgeCSS v1 to remove unused CSS.
 
+* Workbox v4 for offline goodness.
+
+* Baked in `amp-font` with Material Icons.
+
+* Nested navigation menu.
+
+* App Shell PWA architecture. (WIP)
 
 ## Install
 
-Clone the repo and install dependencies.
+Clone this repo.
+
+`git clone https://github.com/zerodevx/amp-build`
+
+Enter directory.
+
+`cd amp-build`
+
+Install dependencies.
+
+`npm install`
+
+## Initialise
+
+Scaffold the `src` directory.
+
+`npm run scaffold`
+
+## Upgrade
+
+To upgrade `amp-build` to a newer version, simply do a `git pull`.
+
+
+
+
+## Directory structure
 
 ```
-git clone https://github.com/zerodevx/amp-build
-cd amp-build
-npm i
+src/
+  site/           -> site structure goes here
+  layouts/        -> page templates go here
+  images/         -> images go here
+  snippets/       -> reusable HTML chunks go here
+  styles/         -> for tailwind to generate styles.css
+  scripts/        -> insert-snippet.js
+  pwa/            -> PWA-related stuff
 ```
 
+## Site
 
-## Develop
+This is designed to work without compilation. Simply run any http server off the root directory at port 8000.
 
-Launch the development server.
+`npm run serve`
 
-```
-npm run dev
-```
+Visit your page at `http://localhost:8000/src/site`.
 
-This opens up a new browser window pointing to `http://127.0.0.1:8000/` which serves files from the `/src` directory.
+Reference all links by their *absolute* url, for example:
 
+`<a href="http://localhost:8000/src/site/giraffes/">What are giraffes?</a>`
 
-### HTML
+## Images
 
-Create your AMP-HTML structure and code directly in the `/src` directory. You can use the `src/index.html` file as a starting point.
+All images go into `src/images`. Reference all images by their *absolute* url, for example:
 
-Place images into the `/src/images` directory and reference to them in your HTML using [relative URLs](https://www.w3.org/TR/WD-html40-970917/htmlweb.html#h-5.1.2).
+`<amp-img src="http://localhost:8000/src/images/short-giraffe.jpg" width="500" height="500" layout="responsive"></amp-img>`
 
-During development, a temporary external stylesheet `/styles/_styles.css` should be loaded. This is for convenience - it contains the whole library of Tailwind classes to allow rapid development. Don't worry, this will be automatically minified/transformed during build.
-
-Additional stuff (like `robots.txt`) can also be placed inside the `/src` directory and they will be copied over during build.
-
-
-### CSS
-
-AMP with Tailwind is a match made in heaven. Design your site using Tailwind utility classes. Default configuration can be changed via `/tailwind.js`. Custom component classes, if any, can be declared in `/src/styles/tailwind.css`.
-
-You can also place custom AMP classes in the `index.html` file directly at the end of the `<style amp-custom>` tag.
-
-
-## Build
-
-Build your distribution bundle.
+Add your app icons in the following sizes:
 
 ```
-npm run build
+src/images/icons/
+  favicon.ico
+  icon-72x72.png
+  icon-96x96.png
+  icon-128x128.png
+  icon-152x152.png
+  icon-192x192.png
+  icon-384x384.png
+  icon-512x512.png
 ```
 
-This automates a few things. It removes your unused CSS using [Purgecss](https://github.com/FullHuman/purgecss), inlines your CSS into the `<style amp-custom>` tags per [AMP specs](https://www.ampproject.org/docs/fundamentals/spec), minifies your HTML and CSS via [HTMLMinifier](https://github.com/kangax/html-minifier), optimizes your `/images` files via [imagemin](https://github.com/imagemin/imagemin), and validates your distribution using the official [Google amphtml-validator](https://www.npmjs.com/package/amphtml-validator).
+`src/images/icons/favicon.ico` will be moved into root during build.
 
-The build is written into the `/dist` directory. You can optionally serve from `/dist` to check that everything is ok.
+Imagemin takes a long time, so minify the images in `src/images/` once using:
+
+`npm run build:images`
+
+During build, the `src/images/` directory will be copied directly without modification.
+
+## Layouts
+
+By default, new pages are generated from `src/layouts/default.html`. This serves as the template whenever a new page is scaffolded.
+
+Add a new page:
+
+`npm run scaffold:page -- <url> <optional: template>`
+
+For example:
+
+`npm run scaffold:page -- /about/services section`
+
+This copies `src/layouts/section.html` to `src/site/about/services/index.html`. If the directory does not exist, it will be created.
+
+## Snippets
+
+Reusable HTML blocks go into snippets. Insert snippets into page using a `script` tag, `snippet` attribute, and source to `src/scripts/insert-snippet.js`. For example:
+
+`<script snippet="header.html" src="http://localhost:8000/src/scripts/insert-snippet.js"></script>`
+
+## Default Snippets
 
 ```
-npm run serve:dist
+snippets/header.html          -> Header
+snippets/footer.html          -> Footer
+snippets/amp-components.html  -> Optional default amp-components for every page
 ```
 
-The `/dist` directory is ready to be deployed into any static server.
+## Styles
+
+Use tailwind classes to construct your page. If you wish to make changes to `src/styles/tailwind.js` - for example to add more functional classes - edit that file, then run the following to regenerate `styles.css`:
+
+`npm run build:tailwind`
+
+## PWA
+
+Update `manifest.json` at `src/pwa/` to configure how your app looks like on homescreen.
 
 
-## License
+# TO-DOs
 
-MIT
+## App Shell
+
+At the moment, [Amp Shadow](https://github.com/ampproject/amphtml/blob/master/spec/amp-shadow-doc.md) does not seem to be working very well, and it's not clear if AMP devs are continuing work on it.
 
 
-## Contribute
+## Config
 
-Suggestions are welcome! Or make an issue, fork the repo, and raise a PR.
+Set global configuration at `src/config.json`.
+
+| Key               | Description                          | Value                        |
+|-------------------|--------------------------------------|------------------------------|
+| themeColor        | Sets the `theme-color` meta tag.     | Hexadecimal color code       |
 

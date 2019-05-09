@@ -1,0 +1,62 @@
+<amp-sidebar id="sidebar" layout="nodisplay" side="right" class="w-64 bg-white">
+  <div class="flex h-16 items-center justify-end">
+    <button class="mr-4" on='tap:sidebar.close'>
+      <i class="material-icons">close</i>
+    </button>
+  </div>
+  <nav toolbar="(min-width: 767px)" toolbar-target="nav-desktop">
+    <!-- Input nav items here -->
+    <ul class="list-reset">
+
+      <li>
+        <a
+          class="nav-link1 no-underline text-grey-darker hover:text-blue h-16 px-4 flex items-center"
+          href="http://localhost:8000/src/site/link1/"
+          on='tap:sidebar.close'>
+          <h4>Link 1</h4>
+        </a>
+      </li>
+
+      <li>
+        <a
+          class="nav-section1 no-underline text-grey-darker hover:text-blue h-16 px-4 flex items-center"
+          href="http://localhost:8000/src/site/section1/"
+          on='tap:sidebar.close'>
+          <h4>Section 1</h4>
+          <i class="material-icons">expand_more</i>
+        </a>
+        <!-- Dropdown menu -->
+        <ul class="list-reset absolute bg-white w-48 rounded-sm rounded-t-none md:shadow">
+          <li>
+            <a
+              class="nav-link2 no-underline text-grey-darker hover:text-blue h-12 px-4 flex items-center"
+              href="http://localhost:8000/src/site/section2/link2/"
+              on='tap:sidebar.close'>
+              <i class="material-icons">chevron_right</i>
+              <h5>Link 2</h5>
+            </a>
+          </li>
+          <li>
+            <a
+              class="nav-link3 no-underline text-grey-darker hover:text-blue h-12 px-4 flex items-center"
+              href="http://localhost:8000/src/site/section2/link3/"
+              on='tap:sidebar.close'>
+              <i class="material-icons">chevron_right</i>
+              <h5>Link 3</h5>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+    </ul>
+  </nav>
+</amp-sidebar>
+
+<header class="sticky z-10 pin-t pin-r pin-l h-16 bg-transparent bg-white shadow-md flex items-center">
+  <a class="no-underline text-grey-darker hover:text-blue flex items-center h-16 ml-4" href="http://localhost:8000/src/site/">
+    <h1>amp-build</h1>
+  </a>
+  <div id="nav-desktop" class="mx-16"></div>
+  <div class="flex-1"></div>
+  <button class="mr-4 md:hidden" on='tap:sidebar.open'><i class="material-icons">menu</i></button>
+</header>
