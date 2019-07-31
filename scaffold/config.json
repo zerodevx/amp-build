@@ -1,4 +1,4 @@
 {
-  "themeColor": "",
-  "devUrl": "http://localhost:8000/src/site/"
+  "stagingUrl" : "https://staging.example.com/",
+  "productionUrl": "https://example.com/"
 }

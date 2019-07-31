@@ -1,5 +1,5 @@
 module.exports = {
-  content: ['temp/**/*.html'],
+  content: ['build/**/*.html'],
   css: ['src/styles/styles.css'],
   extractors: [
     {

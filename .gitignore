@@ -3,9 +3,10 @@
 # Edit at https://www.gitignore.io/?templates=node,macos
 
 src/
-temp/
+build/
 dist/
-dist-staging/
+temp/
+tmp/
 
 ### macOS ###
 # General
