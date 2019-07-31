@@ -1,9 +1,11 @@
 # amp-build
 
-An opinionated [AMP](https://amp.dev) ~~[PWA](https://developers.google.com/web/progressive-web-apps/)~~ site build.
+An opinionated [AMP](https://amp.dev) static site build and static site generator.
 
-Works like a simple static site generator that outputs AMP-validated pages ~~which are indexed by search engines
-and acts as an entry point to a complete PWA app~~.
+Use this to create full-featured websites that are also AMP-validated pages. Does not require compilation or
+a build step during development, because that's so passé. Runs almost entirely off NPM scripts, because things
+shouldn't be so complicated.
+
 
 Features:
 
@@ -170,20 +172,6 @@ or `src/styles/tailwind.css` to add more functional classes - edit the files, th
 `npm run build:tailwind`
 
 
-
-## TO-DOs
-
-### Service Worker
-
-Integrate service worker generation into build.
-
-
-### App Shell
-
-At the moment, [Amp Shadow](https://github.com/ampproject/amphtml/blob/master/spec/amp-shadow-doc.md) does not
-seem to be working very well, and it's not clear if AMP devs are continuing work on it.
-
-
 ### Config
 
 Set global configuration at `src/config.json`.
@@ -192,4 +180,38 @@ Set global configuration at `src/config.json`.
 |---------------------|---------------|------------------------------------------|
 | stagingUrl          | String        | Base URL of staging site                 |
 | productionUrl       | String        | Base URL of production site              |
+
+
+
+## TO-DOs
+
+### LD+JSON
+
+Make a better way to automate this.
+
+
+### Service Worker
+
+Integrate service worker generation into build.
+
+
+### PWA/App Shell
+
+Build should eventually become a [PWA](https://developers.google.com/web/progressive-web-apps/), where AMP-validated pages
+are indexed by search engines and act as an entry point to a complete PWA app.
+
+At the moment, [Amp Shadow](https://github.com/ampproject/amphtml/blob/master/spec/amp-shadow-doc.md) does not
+seem to be working very well, and it's not clear if AMP devs are continuing work on it.
+
+Also, during proof-of-concept it's discovered that not all AMP components work as expected after being piped in.
+
+
+## Changelog
+
+**v1.0.0 2019-07-31:**
+* Complete overhaul so that things should be easier to reason with now.
+* This should be good enough as a base to build on.
+
+**v0.1.0 2018-10-05:**
+* Initial release.
 
