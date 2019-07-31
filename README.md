@@ -28,10 +28,9 @@ I recommend installing this repo as a `git-subtree`. Here's an [excellent writeu
 
 
 ```
-git subtree add --prefix amp-build https://github.com/zerodevx/amp-build release --squash
+git subtree add --prefix amp-build https://github.com/zerodevx/amp-build tags/v1.0.0 --squash
 ```
 
-Note: The `release` branch contains the latest stable.
 
 Next, install dependencies.
 
