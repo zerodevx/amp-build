@@ -35,6 +35,7 @@
   "author": "Jason Lee <jason@zerodevx.com>",
   "license": "ISC",
   "dependencies": {
+    "amphtml-validator": "^1.0.23",
     "foreach-cli": "^1.8.1",
     "fx": "^14.0.1",
     "html-minifier": "^4.0.0",
