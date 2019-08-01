@@ -1,5 +1,7 @@
 # amp-build
 
+![GitHub release](https://img.shields.io/github/release/zerodevx/amp-build)
+
 An opinionated [AMP](https://amp.dev) static site build and static site generator.
 
 Use this to create full-featured websites that are also AMP-validated pages. Does not require compilation or
@@ -28,8 +30,10 @@ I recommend installing this repo as a `git-subtree`. Here's an [excellent writeu
 
 
 ```
-git subtree add --prefix amp-build https://github.com/zerodevx/amp-build tags/v1.0.0 --squash
+git subtree add --prefix amp-build https://github.com/zerodevx/amp-build tags/vX.X.X --squash
 ```
+
+where `X.X.X` is the latest release semver.
 
 
 Next, install dependencies.
@@ -55,13 +59,17 @@ Start the local server.
 Point your web browser to `http://localhost:8000/src/site/` - no build step required.
 
 
-## Usage
-
 ### Upgrade
 
 To upgrade `amp-build` to a newer version,
 
-`git subtree pull --prefix amp-build  https://github.com/zerodevx/amp-build release --squash`
+`git subtree pull --prefix amp-build  https://github.com/zerodevx/amp-build tags/vX.X.X --squash`
+
+where `X.X.X` is the newer release semver.
+
+
+
+## Usage
 
 
 ### Directory structure
