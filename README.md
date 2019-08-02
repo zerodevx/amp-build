@@ -189,6 +189,32 @@ Set global configuration at `src/config.json`.
 | productionUrl       | String        | Base URL of production site              |
 
 
+## Builds
+
+### Test build locally
+
+Generate your build locally into the `build/` directory.
+
+`npm run build`
+
+Build can be tested by pointing your web browser to `http://localhost:8000/build`.
+
+### Staging build
+
+Ensure that `stagingUrl` has been defined in `src/config.json`. Run
+
+`npm run build-staging`
+
+The generated bundle in `build/` directory can then be published in your staging server.
+
+### Production build
+
+Ensure that `productionUrl` has been defined in `src/config.json`. Run
+
+`npm run build-production`
+
+The generated bundle in `build/` directory can then be published in your production server.
+
 
 ## TO-DOs
 
