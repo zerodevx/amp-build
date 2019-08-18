@@ -15,9 +15,9 @@ Features:
 * Tailwindcss v1 as utility CSS.
 * PurgeCSS v1 to remove unused CSS.
 * HTMLMinifier v4 for minification.
-* Baked in Material Icons.
+* XML Sitemap via static-sitemap-cli v1.
+* Material Icons.
 * Nested navigation menu.
-* XML Sitemap.
 * Workbox v4 for offline goodness. (WIP)
 * App Shell PWA architecture. (WIP)
 
@@ -183,10 +183,10 @@ or `src/styles/tailwind.css` to add more functional classes - edit the files, th
 
 Set global configuration at `src/config.json`.
 
-| Key                 | Type          | Description                              |
-|---------------------|---------------|------------------------------------------|
-| stagingUrl          | String        | Base URL of staging site                 |
-| productionUrl       | String        | Base URL of production site              |
+| Key              | Type          | Description                                                  |
+|------------------|---------------|--------------------------------------------------------------|
+| stagingUrl       | String        | Base URL of staging site                                     |
+| productionUrl    | String        | Base URL of production site                                  |
 
 
 ## Builds
@@ -201,19 +201,57 @@ Build can be tested by pointing your web browser to `http://localhost:8000/build
 
 ### Staging build
 
-Ensure that `stagingUrl` has been defined in `src/config.json`. Run
+Ensure that `stagingUrl` is defined in `src/config.json`, then run
 
 `npm run build-staging`
 
-The generated bundle in `build/` directory can then be published in your staging server.
+This prepares `/build` for Staging - files are minified and amp-validated but have analytics disabled and are not indexable by search engines. The `/build` directory can then be copied over and published to your Staging server.
 
 ### Production build
 
-Ensure that `productionUrl` has been defined in `src/config.json`. Run
+Ensure that `productionUrl` is defined in `src/config.json`, then run
 
 `npm run build-production`
 
-The generated bundle in `build/` directory can then be published in your production server.
+This generates the production build that is minified, amp-validated, analytics enabled, and indexable. The `/build` directory
+is ready to be copied over to your Production directory for deployment.
+
+I recommend using [rsync](https://gist.github.com/zerodevx/9f71a4530f70d4947747ad170c67cd25) to perform the copy,
+something like:
+
+```
+cd build
+rsync -rlpgoDci --del --exclude=.DS_Store . ../production
+```
+
+### Sitemap for Production
+
+I recommend generating the sitemap after the rsync operation. This preserves the correct `lastmod` timestamp
+for files that are not changed, so Google won't reindex those in vain.
+
+```
+npm run build:sitemap -- -r <path/to/production>
+```
+
+This generates a `sitemap.xml` in your production path.
+
+
+### amp-cache
+
+The first AMP page that a user enters, on mobile, from a search engine, are viewed through the AMP viewer - which loads
+a special cached version of your page from the AMP cache. You might want to invalidate the cache after a new production
+deployment.
+
+The amp-cache can be updated via a [update-cache](https://developers.google.com/amp/cache/update-cache) operation.
+
+View instructions from the link to generate your `privateKey.pem` and `apikey.pub` pair. The cache can be updated via
+
+```
+npm i --save @ampproject/toolbox-cli
+sscli [BASEURL] -r <path/to/root> -t > sitemap.txt
+while IFS= read -r line; do amp update-cache $line; done < sitemap.txt
+```
+
 
 
 ## TO-DOs
@@ -241,10 +279,14 @@ Also, during proof-of-concept it's discovered that not all AMP components work a
 
 ## Changelog
 
-**v1.0.0 2019-07-31:**
+**v1.1.0** - 2019-08-17:
+* Remove `shx` - sorry Windows.
+* Update `static-sitemap-cli` to v1.
+* Add gist for copy-build best practice.
+
+**v1.0.0** - 2019-07-31:
 * Complete overhaul so that things should be easier to reason with now.
 * This should be good enough as a base to build on.
 
-**v0.1.0 2018-10-05:**
+**v0.1.0** - 2018-10-05:
 * Initial release.
-
