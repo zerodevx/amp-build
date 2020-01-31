@@ -1,0 +1,25 @@
+{
+  "version": "{$VERSION}",
+  "profiles": {
+    "staging": {
+      "baseUrl": "https://staging.example.com"
+    },
+    "production": {
+      "baseUrl": "https://example.com"
+    }
+  },
+  "build": {
+    "outputDir": "dist"
+  },
+  "tailwind": {
+    "enabled": true,
+    "configPath": "src/_styles/tailwind.config.js",
+    "cssPath": "src/_styles/tailwind.css"
+  },
+  "server": {
+    "port": 8000,
+    "host": "localhost",
+    "root": "src",
+    "ignore": ["**/_config/*.*", "**/_styles/tailwind.*"]
+  }
+}

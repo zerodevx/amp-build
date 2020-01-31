@@ -5,19 +5,16 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <!-- This is automatically removed in Production -->
+    <!-- Will be removed during build:production -->
     <meta name="robots" content="noindex">
 
     <!-- Input page description here -->
     <meta name="description" content="An opinionated Google AMP PWA site build.">
 
-    <!-- Icons & Theme Color -->
-    <script snippet="icons.html" src="http://localhost:8000/src/scripts/insert-snippet.js"></script>
-
     <!-- Preload all render-blocking AMP runtimes -->
     <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">
 
-    <!-- Preload all hero images here -->
+    <!-- Preload all above-the-fold assets here -->
     <!--
     <link rel="preload" as="image" href="https://picsum.photos/1920/1080?image=28" media="(min-width: 1280px)">
     <link rel="preload" as="image" href="https://picsum.photos/1280/768?image=28" media="(max-width: 1279px) and (min-width: 641px)">
@@ -27,42 +24,26 @@
     <!-- Preload Google Fonts -->
     <link rel="preconnect dns-prefetch" href="https://fonts.gstatic.com/" crossorigin>
 
-    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <!-- Defer AMP runtime in development; will be transformed to async during build -->
+    <script defer src="https://cdn.ampproject.org/v0.js"></script>
 
-    <!-- Default AMP Components -->
-    <script snippet="amp-components.html" src="http://localhost:8000/src/scripts/insert-snippet.js"></script>
+    <!-- Load default AMP components -->
+    <script snippet="amp-components.html" src="/_scripts/insert-snippet.js"></script>
 
     <!-- Import additional page-specific AMP components here -->
-
-
-    <!-- Import AMP Analytics (handled during build) -->
-    <!--analytics:start
-    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
-    analytics:end-->
-
-    <!-- Import AMP Service Worker (handled during build) -->
-    <!--sw:start
-    <script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
-    sw:end-->
 
     <!-- Load Google Fonts here -->
     <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
 
     <!-- For Tailwind during development and will be removed at build -->
-    <link id="tailwind" href="http://localhost:8000/src/styles/styles.css" rel="stylesheet">
+    <link id="tailwind" href="/_styles/styles.css" rel="stylesheet">
 
-    <!-- At build, Tailwind CSS will be minimized and inlined below to fit AMP specs -->
-    <!-- Do not remove this placeholder! -->
+    <!-- Add CSS rules that should NOT be purged here -->
     <style amp-custom>
-      /* tw:placeholder */
-
-      /*
-      Add CSS rules that should NOT be purged here.
-      */
 
       /* AMP-specific helper classes */
       amp-img.contain img { object-fit: contain; }
-      amp-img.cover img, amp-video.cover video { object-fit: cover; }
+      amp-img.cover img { object-fit: cover; }
       amp-img.grayscale img { filter: grayscale(100%); }
       amp-img.blur img { filter: blur(2px); }
 
@@ -73,53 +54,19 @@
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
 
     <!-- This automatically updates when scaffolding -->
-    <link rel="canonical" href="http://localhost:8000/src/site/">
+    <link rel="canonical" href="#">
 
     <!-- Input page title here -->
-    <title>amp-build | zero-dev-x</title>
-
-    <!-- Input ld+json here -->
-    <!--
-    <script type="application/ld+json">
-    {
-      "@context": "http://schema.org",
-      "@type": "Webpage",
-      "url": "https://zerodevx.github.io/amp-build/dist",
-      "name": "amp-build",
-      "headline": "amp-build",
-      "description": "An opinionated Google Accelerated Mobile Pages PWA site build.",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://zerodevx.github.io/amp-build/dist"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "zero-dev-x",
-        "logo": {
-          "url": "https://dev.zerodevx.com/assets/logo_text.svg",
-          "width": 400,
-          "height": 120,
-          "@type": "ImageObject"
-        }
-      },
-      "image": {
-        "@type": "ImageObject",
-        "url": "https://zerodevx.github.io/amp-build/dist/images/icon-512x512.png",
-        "width": 512,
-        "height": 512
-      }
-    }
-    </script>
-    -->
+    <title>amp-build|zero-dev-x</title>
 
   </head>
 
   <body>
     <!-- Analytics -->
-    <script snippet="analytics.html" src="http://localhost:8000/src/scripts/insert-snippet.js"></script>
+    <script snippet="analytics.html" src="/_scripts/insert-snippet.js"></script>
 
     <!-- Header -->
-    <script snippet="header.html" src="http://localhost:8000/src/scripts/insert-snippet.js"></script>
+    <script snippet="header.html" src="/_scripts/insert-snippet.js"></script>
 
     <!-- The `<main>` tag be content section extracted by the App Shell in PWA mode -->
     <main>
@@ -159,26 +106,6 @@
       </section>
 
     </main>
-
-    <!-- Footer -->
-    <script snippet="footer.html" src="http://localhost:8000/src/scripts/insert-snippet.js"></script>
-
-
-    <!-- Install the service worker -->
-    <!--sw:start
-    <amp-install-serviceworker
-      src="http://localhost:8000/src/site/sw.js"
-      layout="nodisplay"
-      data-iframe-src="http://localhost:8000/src/site/install-sw.html">
-    </amp-install-serviceworker>
-    sw:end-->
-
-    <!-- For LiveReload during development and will be removed at build -->
-    <!--
-    <script id="livereload">
-      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
-    </script>
-    -->
 
   </body>
 </html>

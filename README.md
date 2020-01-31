@@ -2,7 +2,7 @@
 
 ![GitHub release](https://img.shields.io/github/release/zerodevx/amp-build)
 
-An opinionated [AMP](https://amp.dev) static site build and static site generator.
+An opinionated [Google AMP](https://amp.dev) site build and static site generator.
 
 Use this to create full-featured websites that are also AMP-validated pages. Does not require compilation or
 a build step during development, because that's so passé. Runs almost entirely off NPM scripts, because things
